@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-
+var webpack_config_test = require('./webpack.config.test');
 module.exports = function (config) {
   config.set({
     autoWatch: true,
@@ -7,31 +7,13 @@ module.exports = function (config) {
     // singleRun: true, //just run once by default
     frameworks: [ 'mocha', 'chai' ], //use the mocha test framework
     files: [
-      'tests.webpack.js' //just load this file
+      'karma.tests.webpack.js'
     ],
     preprocessors: {
       'tests.webpack.js': [ 'webpack', 'sourcemap' ] //preprocess with webpack and our sourcemap loader
     },
     reporters: [ 'dots' ], //report results in this format
-    webpack: { //kind of a copy of your webpack config
-      devtool: 'inline-source-map', //just do inline source maps instead of the default
-      module: {
-        loaders: [{
-          exclude: /node_modules/,
-          loader: 'babel',
-          query: {
-            presets: ['react', 'es2015', 'stage-1'],
-            "plugins": [
-              [
-                "transform-strict-mode", {
-                  "strict": false
-                }
-              ]
-            ]
-          }
-        }]
-      }
-    },
+    webpack: webpack_config_test,
     webpackServer: {
       noInfo: true //please don't spam the console when running in karma!
     }
