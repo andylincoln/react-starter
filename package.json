@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors",
+    "dev": "webpack --config webpack.config.development.js",
+    "development": "npm run dev",
+    "start": "webpack-dev-server --progress --colors --config webpack.config.development.js",
     "test": "karma start karma.conf.js --single-run",
-    "test:watch": "karma start karma.conf.js"
+    "test:watch": "karma start karma.conf.js",
+    "prod": "webpack --config webpack.config.production.js",
+    "production": "npm run prod"
   },
   "author": "Andy Lincoln <andrewlincoln11@gmail.com> (http://www.andylincoln.io)",
   "license": "MIT",
@@ -31,8 +35,10 @@
     "karma-webpack": "^1.8.0",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^15.3.2",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.0",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0"
   },
   "dependencies": {
     "babel-plugin-transform-strict-mode": "^6.18.0",
@@ -40,7 +46,9 @@
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "react-router": "^3.0.0",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "rimraf": "^2.5.2",
+    "trash": "4.0.0"
   },
   "repository": {
     "url": "git@github.com:andylincoln/react-starter.git",
