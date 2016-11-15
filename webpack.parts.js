@@ -3,6 +3,25 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack-plugin');
 
+exports.babel_compile = function(include, exclude, query) {
+  return {
+    module: {
+      loaders: [
+        {  // JavaScript
+          test: /\.js$/|/\.jsx$/,
+          exclude: /node_modules/,
+          include: path.join(__dirname, 'src/scripts'),
+          loader: 'babel',
+          // TODO: I don't think this preset query is necessary with babelrc present
+          query: {
+            presets: ['react', 'es2015', 'stage-1']
+          }
+        }
+      ]
+    }
+  }
+}
+
 exports.devServer = function(options) {
   return {
     watchOptions: {
