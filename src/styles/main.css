@@ -1,0 +1,8 @@
+div.root {
+  background: red;
+}
+
+h1.app-name {
+  background: blue;
+  color: white;
+}
