@@ -5,17 +5,18 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: [ 'Chrome', 'PhantomJS'], //run in Chrome
     // singleRun: true, //just run once by default
-    frameworks: [ 'mocha', 'chai' ], //use the mocha test framework
+    frameworks: [ 'mocha', 'chai' ],
     files: [
-      'karma.tests.webpack.js'
+      // 'karma.tests.webpack.js'
     ],
+    logLevel: config.LOG_DEBUG, // TODO: Change this to info
     preprocessors: {
       'tests.webpack.js': [ 'webpack', 'sourcemap' ] //preprocess with webpack and our sourcemap loader
     },
     reporters: [ 'dots' ], //report results in this format
     webpack: webpack_config_test,
     webpackServer: {
-      noInfo: true //please don't spam the console when running in karma!
+      noInfo: false //please don't spam the console when running in karma!
     }
   });
 };

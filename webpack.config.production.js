@@ -11,7 +11,10 @@ let config = merge(
   {
     devtool: 'source-map'
   },
-  parts.babel_compile()
+  parts.clean(parts.build_dir),
+  parts.babel_compile(),
+  parts.setFreeVariable('process.env.NODE_ENV','production')
+
 );
 
 module.exports = config;

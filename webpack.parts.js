@@ -3,6 +3,8 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+exports.build_dir = path.join(__dirname, 'assets');
+
 exports.common = {
   entry: {
     src: path.join(__dirname,'src', 'scripts'),
@@ -10,10 +12,15 @@ exports.common = {
   output: {
     path: path.join(__dirname, 'assets'),
     filename: 'bundle.js',
-    publicPath: './'
+    publicPath: 'assets'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    modulesDirectories: [
+        "",
+        "src",
+        "node_modules"
+      ]
   }
 }
 
@@ -39,7 +46,7 @@ exports.babel_compile = function(include, exclude, query) {
   }
 }
 
-exports.devServer = function(options) {
+exports.devServer = function(options={host: 'localhost', port: 8080}) {
   return {
     watchOptions: {
      // Delay the rebuild after the first change
