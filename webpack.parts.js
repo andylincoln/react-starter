@@ -1,21 +1,38 @@
 const webpack = require('webpack');
+const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const PurifyCSSPlugin = require('purifycss-webpack-plugin');
+
+exports.common = {
+  entry: {
+    src: path.join(__dirname,'src', 'scripts'),
+  },
+  output: {
+    path: path.join(__dirname, 'assets'),
+    filename: 'bundle.js',
+    publicPath: './'
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  }
+}
 
 exports.babel_compile = function(include, exclude, query) {
+  include = include || path.join(__dirname, 'src/scripts');
+  exclude = exclude || /node_modules/;
+  query = query || {
+    presets: ['react', 'es2015', 'stage-1']
+  };
   return {
     module: {
       loaders: [
         {  // JavaScript
           test: /\.js$/|/\.jsx$/,
-          exclude: /node_modules/,
-          include: path.join(__dirname, 'src/scripts'),
+          exclude: exclude,
+          include: include,
           loader: 'babel',
           // TODO: I don't think this preset query is necessary with babelrc present
-          query: {
-            presets: ['react', 'es2015', 'stage-1']
-          }
+          query: query
         }
       ]
     }
@@ -154,18 +171,4 @@ exports.extractCSS = function(paths) {
       new ExtractTextPlugin('[name].[chunkhash].css')
     ]
   };
-}
-
-exports.purifyCSS = function(paths) {
-  return {
-    plugins: [
-      new PurifyCSSPlugin({
-        basePath: process.cwd(),
-        // `paths` is used to point PurifyCSS to files not
-        // visible to Webpack. You can pass glob patterns
-        // to it.
-        paths: paths
-      }),
-    ]
-  }
 }
