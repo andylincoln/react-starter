@@ -24,7 +24,7 @@ exports.common = {
   }
 }
 
-exports.babel_compile = function(include, exclude, query) {
+exports.compile_src = function(include, exclude, query) {
   include = include || path.join(__dirname, 'src/scripts');
   exclude = exclude || /node_modules/;
   query = query || {
@@ -45,7 +45,27 @@ exports.babel_compile = function(include, exclude, query) {
     }
   }
 }
-
+exports.compile_test = function(include, exclude, query) {
+  include = include || path.join(__dirname, 'test');
+  exclude = exclude || /node_modules/;
+  query = query || {
+    presets: ['react', 'es2015', 'stage-1']
+  };
+  return {
+    module: {
+      loaders: [
+        {  // JavaScript
+          test: /\.test.js$/,
+          exclude: exclude,
+          include: include,
+          loader: 'babel',
+          // TODO: I don't think this preset query is necessary with babelrc present
+          query: query
+        }
+      ]
+    }
+  }
+}
 exports.devServer = function(options={host: 'localhost', port: 8080}) {
   return {
     watchOptions: {

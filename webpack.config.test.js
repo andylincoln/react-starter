@@ -9,8 +9,8 @@ const parts = require('./webpack.parts');
 let config = merge(
   parts.common,
   parts.clean(parts.build_dir),
-  parts.babel_compile(),
-  parts.devServer(),
+  parts.compile_src(),
+  parts.compile_test(),
   {
     devtool: 'source-map',
     plugins: []

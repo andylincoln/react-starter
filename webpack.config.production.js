@@ -12,7 +12,7 @@ let config = merge(
     devtool: 'source-map'
   },
   parts.clean(parts.build_dir),
-  parts.babel_compile(),
+  parts.compile_src(),
   parts.setFreeVariable('process.env.NODE_ENV','production')
 
 );
