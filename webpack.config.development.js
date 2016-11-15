@@ -1,7 +1,7 @@
 //   NODE_ENV = development
 
-let path = require('path');
-let webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 let config = {
   devServer: {
