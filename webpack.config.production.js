@@ -4,12 +4,6 @@ var path = require('path');
 var webpack = require('webpack');
 
 let config = {
-  devServer: {
-    context: __dirname,
-    historyApiFallback: true,
-    contentBase: './',
-    hot: false
-  },
   devtool: 'source-map',
   entry: [
     './src/scripts/index.js'
