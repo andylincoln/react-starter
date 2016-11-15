@@ -1,9 +1,10 @@
 //   NODE_ENV = production
 
-var path = require('path');
-var webpack = require('webpack');
+let path = require('path');
+let webpack = require('webpack');
 
 let config = {
+
   devtool: 'source-map',
   entry: [
     './src/scripts/index.js'
