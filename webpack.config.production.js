@@ -3,7 +3,7 @@
 var path = require('path');
 var webpack = require('webpack');
 
-module.exports = {
+let config = {
   devServer: {
     context: __dirname,
     historyApiFallback: true,
@@ -49,3 +49,5 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
 };
+
+module.exports = config;
