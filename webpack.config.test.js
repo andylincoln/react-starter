@@ -4,20 +4,14 @@ const merge = require('webpack-merge');
 
 const parts = require('./webpack.parts');
 
-let config = {
-  devtool: 'inline-source-map', //just do inline source maps instead of the default
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/,
-        query:  {
-          presets: ['react', 'es2015', 'stage-1']
-        }
-      }
-    ]
-  }
-}
+let config = merge(
+  {
+    devtool: "inline-source-map"
+  },
+  parts.compile_app(
+    path.join(__dirname, 'app', 'scripts'), // Include
+    (/node_modules/) // Exclude only the node_modules dir
+  )
+);
 
 module.exports = config;
