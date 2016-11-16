@@ -9,7 +9,7 @@ const parts = require('./webpack.parts');
 let config = merge(
   {
     entry: {
-      app: path.join(__dirname,'app', 'scripts'),
+      app: parts.app_dir 
     }
   },
   parts.common,

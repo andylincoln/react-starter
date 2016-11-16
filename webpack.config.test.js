@@ -9,7 +9,7 @@ let config = merge(
     devtool: "inline-source-map"
   },
   parts.compile_app(
-    path.join(__dirname, 'app', 'scripts'), // Include
+    parts.app_dir,  
     (/node_modules/) // Exclude only the node_modules dir
   )
 );

@@ -7,13 +7,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const build_dir = path.join(__dirname, 'assets');
 const app_dir = path.join(__dirname, 'app');
 const style_dir =  path.join(__dirname, 'app', 'styles');
-const scripts_dir = path.join(__dirname, 'app', 'scripts');
-const test_scripts_dir = path.join(__dirname, 'app', 'scripts', 'test');
+const test_scripts_dir = path.join(__dirname, 'app', 'test');
 
 exports.build_dir = build_dir
 exports.app_dir = app_dir
 exports.style_dir = style_dir;
-exports.scripts_dir = scripts_dir;
 exports.test_scripts_dir = test_scripts_dir;
 
 // Common WebPack config settings
@@ -35,7 +33,7 @@ exports.common = {
 // Compile the given includes and not the excludes with Babel
 // If a query is given it is used, otherwise uses .babelrc
 exports.compile_app = function(include, exclude, query) {
-  include = include || path.join(__dirname, 'app', 'scripts');
+  include = include || app_dir;
   exclude = exclude || [/node_modules/, test_scripts_dir];
   query = query || {
     "presets": ["react", "es2015", "stage-1"]
@@ -54,26 +52,7 @@ exports.compile_app = function(include, exclude, query) {
     }
   }
 }
-exports.compile_test = function(include, exclude, query) {
-  include = include || path.join(__dirname, 'test');
-  exclude = exclude || /node_modules/;
-  query = query || {
-    presets: ['react', 'es2015', 'stage-1']
-  };
-  return {
-    module: {
-      loaders: [
-        {  // JavaScript
-          test: /\.test.js$/,
-          exclude: exclude,
-          include: include,
-          loader: 'babel',
-          query: query
-        }
-      ]
-    }
-  }
-}
+
 exports.devServer = function(options={host: 'localhost', port: 8080}) {
   return {
     watchOptions: {

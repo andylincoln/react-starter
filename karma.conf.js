@@ -12,10 +12,10 @@ module.exports = function (config) {
     browsers: [ 'PhantomJS', 'Chrome', 'Firefox' ],
     frameworks: [ 'mocha', 'chai' ],
     files: [
-      'app/scripts/test/test_index.js' //just load this file,
+      'app/test/test_index.js' //just load this file,
     ],
     preprocessors: {
-      'app/scripts/test/test_index.js': [ 'webpack', 'sourcemap' ] //preprocess with webpack and our sourcemap loader
+      'app/test/test_index.js': [ 'webpack', 'sourcemap' ] //preprocess with webpack and our sourcemap loader
     },
     reporters: [ 'dots' ], //report results in this format
     webpack: test_config,
