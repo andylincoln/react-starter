@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const test_config = require('./webpack.config.test');
 
 module.exports = function (config) {
   config.set({
@@ -17,21 +18,7 @@ module.exports = function (config) {
       'app/scripts/test/test_index.js': [ 'webpack', 'sourcemap' ] //preprocess with webpack and our sourcemap loader
     },
     reporters: [ 'dots' ], //report results in this format
-    webpack: { //kind of a copy of your webpack config
-      devtool: 'inline-source-map', //just do inline source maps instead of the default
-      module: {
-        loaders: [
-          {
-            test: /\.js$/,
-            loader: 'babel',
-            exclude: /node_modules/,
-            query:  {
-              presets: ['react', 'es2015', 'stage-1']
-            }
-          }
-        ]
-      }
-    },
+    webpack: test_config,
     webpackServer: {
       noInfo: true //please don't spam the console when running in karma!
     }
