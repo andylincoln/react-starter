@@ -7,7 +7,7 @@
     "clean": "rimraf assets",
     "dev": "webpack --config webpack.config.development.js",
     "development": "npm run dev",
-    "start": "webpack-dev-server --progress --colors --config webpack.config.development.js",
+    "start": "webpack-dev-server --hot --inline --progress --colors --config webpack.config.development.js",
     "test": "karma start karma.conf.js --singleRun",
     "test:watch": "karma start karma.conf.js",
     "prod": "webpack --config webpack.config.production.js",
