@@ -8,7 +8,7 @@ module.exports = function (config) {
     browserDisconnectTimeout : 10000, // default 2000
     browserDisconnectTolerance : 1, // default 0
     browserNoActivityTimeout : 60000, //default 10000
-    browsers: [ 'PhantomJS' ], //run in Chrome
+    browsers: [ 'PhantomJS', 'Chrome', 'Firefox' ],
     frameworks: [ 'mocha', 'chai' ],
     files: [
       'app/scripts/test/test_index.js' //just load this file,
