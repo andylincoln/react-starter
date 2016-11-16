@@ -14,6 +14,7 @@ let config = merge(
   },
   parts.common,
   parts.clean(parts.build_dir),
+  parts.extractCSS(parts.app_dir),
   parts.compile_app(),
   parts.setupCSS(),
   parts.devServer(),

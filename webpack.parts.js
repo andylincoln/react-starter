@@ -4,11 +4,17 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 //  Directory Variables
-exports.build_dir = path.join(__dirname, 'assets');
-exports.app_dir = path.join(__dirname, 'app');
-exports.style_dir = path.join(__dirname, 'app', 'styles');
-exports.scripts_dir = path.join(__dirname, 'app', 'scripts');
-exports.test_scripts_dir = path.join(__dirname, 'app', 'scripts', 'test');
+const build_dir = path.join(__dirname, 'assets');
+const app_dir = path.join(__dirname, 'app');
+const style_dir =  path.join(__dirname, 'app', 'styles');
+const scripts_dir = path.join(__dirname, 'app', 'scripts');
+const test_scripts_dir = path.join(__dirname, 'app', 'scripts', 'test');
+
+exports.build_dir = build_dir
+exports.app_dir = app_dir
+exports.style_dir = style_dir;
+exports.scripts_dir = scripts_dir;
+exports.test_scripts_dir = test_scripts_dir;
 
 // Common WebPack config settings
 exports.common = {
@@ -129,7 +135,7 @@ exports.minify = function() {
   };
 }
 
-exports.setupCSS = function(paths=[parts.style_dir]) {
+exports.setupCSS = function(paths=[style_dir]) {
   return {
     module: {
       loaders: [
