@@ -8,7 +8,7 @@
     "dev": "webpack --config webpack.config.development.js",
     "development": "npm run dev",
     "start": "webpack-dev-server --progress --colors --config webpack.config.development.js",
-    "test": "karma start",
+    "test": "karma start karma.conf.js --singleRun",
     "test:watch": "karma start karma.conf.js",
     "prod": "webpack --config webpack.config.production.js",
     "production": "npm run prod"

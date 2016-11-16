@@ -4,11 +4,11 @@ const path = require('path');
 module.exports = function (config) {
   config.set({
     // to avoid DISCONNECTED messages
+    autoWatch: true,
     browserDisconnectTimeout : 10000, // default 2000
     browserDisconnectTolerance : 1, // default 0
     browserNoActivityTimeout : 60000, //default 10000
     browsers: [ 'PhantomJS' ], //run in Chrome
-    singleRun: true, //just run once by default
     frameworks: [ 'mocha', 'chai' ],
     files: [
       'app/scripts/test/test_index.js' //just load this file,
