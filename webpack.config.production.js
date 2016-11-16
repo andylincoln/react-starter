@@ -3,13 +3,14 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const validate = require("webpack-validator");
 
 const parts = require('./webpack.parts');
 
 let config = merge(
   {
     entry: {
-      app: parts.app_dir 
+      app: parts.app_dir
     }
   },
   parts.common,
@@ -22,4 +23,6 @@ let config = merge(
 
 );
 
-module.exports = config;
+module.exports = validate(config, {
+  quiet: true
+});

@@ -45,7 +45,8 @@
     "trash": "4.0.0",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.0",
-    "webpack-merge": "^0.16.0"
+    "webpack-merge": "^0.16.0",
+    "webpack-validator": "^2.2.9"
   },
   "dependencies": {
     "react": "^15.3.2",

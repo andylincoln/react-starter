@@ -3,6 +3,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const validate = require("webpack-validator");
 
 const parts = require('./webpack.parts');
 
@@ -14,9 +15,8 @@ let config = merge(
   },
   parts.common,
   parts.clean(parts.build_dir),
-  parts.extractCSS(parts.app_dir),
   parts.compile_app(),
-  parts.setupCSS(),
+  parts.extractCSS(parts.app_dir),
   parts.devServer(),
   {
     devtool: 'eval-source-map',
@@ -25,4 +25,6 @@ let config = merge(
   parts.setFreeVariable('process.env.NODE_ENV','development')
 );
 
-module.exports = config;
+module.exports = validate(config, {
+  quiet: true
+});

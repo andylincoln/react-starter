@@ -19,12 +19,11 @@ exports.common = {
   output: {
     path: path.join(__dirname, 'assets'),
     filename: '[name].js',
-    publicPath: 'assets'
+    publicPath: 'assets/'
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
     modulesDirectories: [
-        "",
         "app",
         "node_modules"
       ]
@@ -42,7 +41,7 @@ exports.compile_app = function(include, exclude, query) {
     module: {
       loaders: [
         {  // JavaScript
-          test: /\.js$/|/\.jsx$/,
+          test: /\.js$/,
           exclude: exclude,
           include: include,
           loader: 'babel',
