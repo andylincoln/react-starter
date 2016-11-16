@@ -55,7 +55,6 @@ exports.compile_test = function(include, exclude, query) {
           exclude: exclude,
           include: include,
           loader: 'babel',
-          // TODO: I don't think this preset query is necessary with babelrc present
           query: query
         }
       ]
