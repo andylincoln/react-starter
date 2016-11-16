@@ -17,7 +17,7 @@ let config = merge(
   parts.compile_app(),
   parts.devServer(),
   {
-    devtool: 'source-map',
+    devtool: 'eval-source-map',
     plugins: []
   },
   parts.setFreeVariable('process.env.NODE_ENV','development')
