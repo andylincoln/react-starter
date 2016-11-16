@@ -189,7 +189,7 @@ exports.clean = function(path) {
   };
 }
 
-exports.extractCSS = function(paths) {
+exports.extractCSS = function(paths=[app_dir]) {
   return {
     module: {
       loaders: [
