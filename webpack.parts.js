@@ -3,8 +3,14 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+//  Directory Variables
 exports.build_dir = path.join(__dirname, 'assets');
+exports.app_dir = path.join(__dirname, 'app');
+exports.style_dir = path.join(__dirname, 'app', 'styles');
+exports.scripts_dir = path.join(__dirname, 'app', 'scripts');
+exports.test_scripts_dir = path.join(__dirname, 'app', 'scripts', 'test');
 
+// Common WebPack config settings
 exports.common = {
   output: {
     path: path.join(__dirname, 'assets'),
@@ -20,12 +26,13 @@ exports.common = {
       ]
   }
 }
-
+// Compile the given includes and not the excludes with Babel
+// If a query is given it is used, otherwise uses .babelrc
 exports.compile_app = function(include, exclude, query) {
   include = include || path.join(__dirname, 'app', 'scripts');
-  exclude = exclude || [/node_modules/, path.join(__dirname, 'app', 'scripts', 'test')];
+  exclude = exclude || [/node_modules/, test_scripts_dir];
   query = query || {
-    presets: ['react', 'es2015', 'stage-1']
+    "presets": ["react", "es2015", "stage-1"]
   };
   return {
     module: {
@@ -122,7 +129,7 @@ exports.minify = function() {
   };
 }
 
-exports.setupCSS = function(paths) {
+exports.setupCSS = function(paths=[parts.style_dir]) {
   return {
     module: {
       loaders: [

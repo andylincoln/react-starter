@@ -15,6 +15,7 @@ let config = merge(
   parts.common,
   parts.clean(parts.build_dir),
   parts.compile_app(),
+  parts.setupCSS(),
   parts.devServer(),
   {
     devtool: 'eval-source-map',
