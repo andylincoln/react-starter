@@ -6,18 +6,20 @@ const merge = require('webpack-merge');
 const validate = require("webpack-validator");
 
 const parts = require('./webpack.parts');
+const style =  path.join(parts.style_dir, "main.css");
 
 let config = merge(
   {
     entry: {
       app: parts.app_dir,
+      style: style
     }
   },
   parts.common,
   parts.clean(parts.build_dir),
-  parts.compile_app(),
-  parts.extractCSS(parts.app_dir),
+  parts.setupCSS(style),
   parts.devServer(),
+  parts.compile_app(),
   {
     devtool: 'eval-source-map',
     plugins: []

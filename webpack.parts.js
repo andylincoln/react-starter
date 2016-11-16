@@ -181,7 +181,7 @@ exports.extractCSS = function(paths=[app_dir]) {
     },
     plugins: [
       // Output extracted CSS to a file
-      new ExtractTextPlugin('[name].[chunkhash].css')
+      new ExtractTextPlugin('main.css')
     ]
   };
 }

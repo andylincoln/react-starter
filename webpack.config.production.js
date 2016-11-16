@@ -6,11 +6,13 @@ const merge = require('webpack-merge');
 const validate = require("webpack-validator");
 
 const parts = require('./webpack.parts');
+const style =  path.join(parts.style_dir, "main.css");
 
 let config = merge(
   {
     entry: {
-      app: parts.app_dir
+      app: parts.app_dir,
+      style: style
     }
   },
   parts.common,
@@ -19,6 +21,8 @@ let config = merge(
   },
   parts.clean(parts.build_dir),
   parts.compile_app(),
+  parts.minify(),
+  parts.extractCSS(style),
   parts.setFreeVariable('process.env.NODE_ENV','production')
 
 );
