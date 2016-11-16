@@ -5,7 +5,7 @@ import TestUtils from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import chai, { expect } from 'chai';
-import reducers from '../src/reducers';
+import reducers from '../reducers';
 
 
 //  Given a React Component, and optionally its props and the application state, render a component to the DOM

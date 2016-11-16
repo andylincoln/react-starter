@@ -6,27 +6,24 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 exports.build_dir = path.join(__dirname, 'assets');
 
 exports.common = {
-  entry: {
-    src: path.join(__dirname,'src', 'scripts'),
-  },
   output: {
     path: path.join(__dirname, 'assets'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: 'assets'
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
     modulesDirectories: [
         "",
-        "src",
+        "app",
         "node_modules"
       ]
   }
 }
 
-exports.compile_src = function(include, exclude, query) {
-  include = include || path.join(__dirname, 'src/scripts');
-  exclude = exclude || /node_modules/;
+exports.compile_app = function(include, exclude, query) {
+  include = include || path.join(__dirname, 'app', 'scripts');
+  exclude = exclude || [/node_modules/, path.join(__dirname, 'app', 'scripts', 'test')];
   query = query || {
     presets: ['react', 'es2015', 'stage-1']
   };

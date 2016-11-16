@@ -7,9 +7,14 @@ const merge = require('webpack-merge');
 const parts = require('./webpack.parts');
 
 let config = merge(
+  {
+    entry: {
+      app: path.join(__dirname,'app', 'scripts'),
+    }
+  },
   parts.common,
   parts.clean(parts.build_dir),
-  parts.compile_src(),
+  parts.compile_app(),
   parts.devServer(),
   {
     devtool: 'source-map',

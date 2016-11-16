@@ -4,8 +4,9 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import chai, { expect } from 'chai';
 
-import App from '../../src/components/app';
-import reducers from '../../src/reducers';
+import App from '../../components/app';
+import reducers from '../../reducers';
+
 import {renderComponent} from '../test_helper';
 
 describe('App' , () => {
