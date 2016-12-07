@@ -4,8 +4,12 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import index from '../index.html';
-import styles from './styles/app.scss';
+// Only for hotloading the changes in dev, test
+if (process.env.NODE_ENV != "production") {
+  require('../index.html');
+  require('./styles/app.scss');
+}
+
 import App from './components/app';
 import reducers from './reducers';
 
