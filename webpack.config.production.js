@@ -19,9 +19,9 @@ let config = merge(
     devtool: 'source-map'
   },
   parts.clean(parts.build_dir),
+  parts.extractCSSfromSASS(style),
   parts.compile_app(),
   parts.minify(),
-  parts.extractCSS(style),
   parts.setFreeVariable('process.env.NODE_ENV','production')
 
 );
