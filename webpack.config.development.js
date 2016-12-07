@@ -11,8 +11,7 @@ const style =  path.join(parts.style_dir, "app.css");
 let config = merge(
   {
     entry: {
-      app: parts.app_dir,
-      style: style
+      app: [parts.app_dir, style]
     }
   },
   parts.common,
