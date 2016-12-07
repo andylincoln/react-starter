@@ -132,7 +132,7 @@ exports.setupSASS = function(paths=[style_dir]) {
       loaders: [
         {
           test: /\.scss$/,
-          loaders: ['style', 'css', 'sass'],
+          loaders: ["style-loader", "css-loader?sourceMap", "sass-loader?sourceMap"],
           include: paths
         }
       ]
