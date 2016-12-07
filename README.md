@@ -15,9 +15,10 @@ To start developing:
 
 To run watch the tests:
 `yarn test:watch`
+`yarn test` (run once)
 
-To run tests once:
-`yarn test`
+Get a production-ready build
+`yarn prod` -> outputs a flat directory of HTML/CSS/JS to /dist
 
 ## Dependencies
 ### Building, minifying
