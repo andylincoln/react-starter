@@ -1,0 +1,13 @@
+// _nav.scss
+
+nav[role="navigation"] {
+
+  ul.nav {
+    list-style: none;
+
+    li {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+  }
+}
