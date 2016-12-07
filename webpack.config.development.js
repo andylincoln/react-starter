@@ -16,6 +16,7 @@ let config = merge(
   },
   parts.common,
   parts.clean(parts.build_dir),
+  parts.raw_html(),
   parts.setupCSS(style),
   parts.devServer(),
   parts.compile_app(),
