@@ -198,3 +198,16 @@ exports.extractCSS = function(paths=[app_dir]) {
     ]
   };
 }
+
+exports.raw_html = function() {
+  return {
+    module: {
+      loaders: [
+        {
+          test: /\.html$/,
+          loader: "raw-loader"
+        }
+      ]
+    }
+  };
+}
