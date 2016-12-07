@@ -118,7 +118,7 @@ exports.setupCSS = function(paths=[style_dir]) {
       loaders: [
         {
           test: /\.css$/,
-          loaders: ['style', 'css', 'postcss-loader'],
+          loaders: ['style', 'css', 'postcss'],
           include: paths
         }
       ]
@@ -180,6 +180,7 @@ exports.clean = function(path) {
   };
 }
 
+// Extract CSS from basic CSS build
 exports.extractCSS = function(paths=[app_dir]) {
   return {
     module: {
@@ -187,7 +188,7 @@ exports.extractCSS = function(paths=[app_dir]) {
         // Extract CSS during build
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract('style', 'css'),
+          loader: ExtractTextPlugin.extract('style', 'css!postcss'),
           include: paths
         }
       ]
@@ -199,6 +200,26 @@ exports.extractCSS = function(paths=[app_dir]) {
   };
 }
 
+// Extract CSS from Sass build after running through PostCSS for auto-prefixing.
+exports.extractCSSfromSASS = function(paths=[app_dir]) {
+  return {
+    module: {
+      loaders: [
+        // Extract CSS during build
+        {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap!postcss-loader!sass-loader?sourceMap")
+        }
+      ]
+    },
+    plugins: [
+      // Output extracted CSS to a file
+      new ExtractTextPlugin('[name].css')
+    ]
+  };
+}
+
+// Use raw_html to mark an html file as part of the build
 exports.raw_html = function() {
   return {
     module: {
