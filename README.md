@@ -26,8 +26,6 @@ The Karma test configuration (`karma.conf.js`) relies on the Webpack test config
 
 
 
-
-[comment]: <> (References)
 [1]: https://mochajs.org/
 [2]: http://chaijs.com/
 [3]: https://karma-runner.github.io/1.0/index.html
