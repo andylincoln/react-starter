@@ -14,8 +14,9 @@ let config = merge(
   parts.setupCSS(style),
   parts.compile_app(
     parts.app_dir,
-    (/node_modules/) // Exclude only the node_modules dir
-  )
+    (/node_modules/) // Exclude only the node_modules dir, include the test dir
+  ),
+  parts.setFreeVariable('process.env.NODE_ENV','test')
 );
 
 module.exports = validate(config, {
