@@ -17,12 +17,12 @@ exports.test_scripts_dir = test_scripts_dir;
 // Common WebPack config settings
 exports.common = {
   output: {
-    path: path.join(__dirname, 'assets'),
+    path: build_dir,
     filename: '[name].js',
-    publicPath: 'assets/'
+    publicPath: '/'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.scss'],
     modulesDirectories: [
         "app",
         "node_modules"
