@@ -118,7 +118,7 @@ exports.setupCSS = function(paths=[style_dir]) {
       loaders: [
         {
           test: /\.css$/,
-          loaders: ['style', 'css'],
+          loaders: ['style', 'css', 'postcss-loader'],
           include: paths
         }
       ]
@@ -132,7 +132,7 @@ exports.setupSASS = function(paths=[style_dir]) {
       loaders: [
         {
           test: /\.scss$/,
-          loaders: ["style-loader", "css-loader?sourceMap", "sass-loader?sourceMap"],
+          loaders: ["style-loader", "css-loader?sourceMap", "postcss-loader","sass-loader?sourceMap"],
           include: paths
         }
       ]

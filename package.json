@@ -16,6 +16,7 @@
   "author": "Andy Lincoln <andrewlincoln11@gmail.com> (http://www.andylincoln.io)",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^6.5.3",
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
@@ -40,6 +41,8 @@
     "karma-webpack": "^1.8.0",
     "mocha": "^2.4.5",
     "node-sass": "^3.13.0",
+    "postcss-loader": "^1.2.0",
+    "postcss-smart-import": "^0.6.0",
     "raw-loader": "^0.5.1",
     "react-addons-test-utils": "^15.3.2",
     "rimraf": "^2.5.2",
