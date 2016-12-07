@@ -7,6 +7,9 @@ export default class App extends Component {
     return (
       <div>
         <Header></Header>
+        <div className="body">
+          
+        </div>
         <Footer></Footer>
       </div>
     );
