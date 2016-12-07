@@ -30,7 +30,6 @@ exports.common = {
   }
 }
 // Compile the given includes and not the excludes with Babel
-// If a query is given it is used, otherwise uses .babelrc
 exports.compile_app = function(include, exclude, query) {
   include = include || app_dir;
   exclude = exclude || [/node_modules/, test_scripts_dir];
