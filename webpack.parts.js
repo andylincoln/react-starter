@@ -126,6 +126,20 @@ exports.setupCSS = function(paths=[style_dir]) {
   };
 }
 
+exports.setupSASS = function(paths=[style_dir]) {
+  return {
+    module: {
+      loaders: [
+        {
+          test: /\.scss$/,
+          loaders: ['style', 'css', 'sass'],
+          include: paths
+        }
+      ]
+    }
+  };
+}
+
 exports.extractBundle = function(options) {
   const entry = {};
   entry[options.name] = options.entries;
@@ -180,7 +194,7 @@ exports.extractCSS = function(paths=[app_dir]) {
     },
     plugins: [
       // Output extracted CSS to a file
-      new ExtractTextPlugin('main.css')
+      new ExtractTextPlugin('[name].css')
     ]
   };
 }

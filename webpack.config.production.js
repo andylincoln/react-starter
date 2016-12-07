@@ -6,13 +6,12 @@ const merge = require('webpack-merge');
 const validate = require("webpack-validator");
 
 const parts = require('./webpack.parts');
-const style =  path.join(parts.style_dir, "main.css");
+const style =  path.join(parts.style_dir, "app.css");
 
 let config = merge(
   {
     entry: {
-      app: parts.app_dir,
-      style: style
+      app: [parts.app_dir, style]
     }
   },
   parts.common,
