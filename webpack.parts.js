@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 //  Directory Variables
-const build_dir = path.join(__dirname, 'assets');
+const build_dir = path.join(__dirname, 'dist');
 const app_dir = path.join(__dirname, 'app');
 const style_dir =  path.join(__dirname, 'app', 'styles');
 const test_scripts_dir = path.join(__dirname, 'app', 'test');
