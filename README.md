@@ -13,9 +13,8 @@ Install all the dependencies
 To start developing:
 `yarn start`
 
-To run watch the tests:
-`yarn test:watch`
-`yarn test` (run once)
+To run the tests:
+`yarn test:watch` OR `yarn test` (run once)
 
 Get a production-ready build
 `yarn prod` -> outputs a flat directory of HTML/CSS/JS to /dist
