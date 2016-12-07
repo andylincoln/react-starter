@@ -7,7 +7,7 @@ My (evolving) base React front end stack.
 ### Building, minifying
 - [Webpack][7] For running builds
 - [Babel][8] For transpiling ES6 JS to ES5 JS
-- [HotModuleReplacement][9] for development and test environments
+- [Hot Module Replacement][9] for development and test environments
 - Extracting CSS from JS in production
 
 ### Styles
