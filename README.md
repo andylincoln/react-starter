@@ -7,6 +7,12 @@ My (evolving) base React front end stack.
 ### Building, minifying
 - [Webpack][7] For running builds
 - [Babel][8] For transpiling ES6 JS to ES5 JS
+- [HotModuleReplacement][9] for development and test environments
+- Extracting CSS from JS in production
+
+### Styles
+- SASS (Scss syntax) for organization, mixins
+- PostCSS for auto-prefixing support
 
 ### View & State
 - [react][4]
@@ -34,3 +40,4 @@ The Karma test configuration (`karma.conf.js`) relies on the Webpack test config
 [6]: https://github.com/reactjs/react-redux
 [7]: https://webpack.github.io/
 [8]: https://babeljs.io/
+[9]: https://webpack.github.io/docs/hot-module-replacement-with-webpack.html
