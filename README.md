@@ -3,6 +3,22 @@ My (evolving) base React front end stack.
 
 <img src="https://codeship.com/projects/0f71e140-8f7b-0134-fdc9-0e20509a962c/status?branch=master" alt="Codeship badge"/>
 
+## Getting started
+If you don't have yarn installed already:
+`npm install -g yarn`
+
+Install all the dependencies
+`yarn install`
+
+To start developing:
+`yarn start`
+
+To run watch the tests:
+`yarn test:watch`
+
+To run tests once:
+`yarn test`
+
 ## Dependencies
 ### Building, minifying
 - [Webpack][7] For running builds
