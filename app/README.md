@@ -1,5 +1,4 @@
-# App directory
-
+```
 app
 ├── actions -- Redux actions
 ├── components -- React.js components
@@ -10,3 +9,4 @@ app
 │   └── partials - typography, buttons, forms, tables, etc.
 └── test -- JS tests
     └── components -- React component tests
+```
