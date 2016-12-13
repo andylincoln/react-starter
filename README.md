@@ -2,6 +2,8 @@
 My (evolving) base React front end stack.
 
 <img src="https://codeship.com/projects/0f71e140-8f7b-0134-fdc9-0e20509a962c/status?branch=master" alt="Codeship badge"/>
+[![Code Climate](https://codeclimate.com/github/andylincoln/react-starter/badges/gpa.svg)](https://codeclimate.com/github/andylincoln/react-starter)
+[![Issue Count](https://codeclimate.com/github/andylincoln/react-starter/badges/issue_count.svg)](https://codeclimate.com/github/andylincoln/react-starter)
 
 ## Getting started
 If you don't have yarn installed already:
