@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 // Only for hotloading the changes in dev, test
-if (process.env.NODE_ENV != "production") {
+if (process.env.NODE_ENV !== "production") {
   require('../index.html');
   require('./styles/app.scss');
 }
