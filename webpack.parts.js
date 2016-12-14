@@ -30,12 +30,10 @@ exports.common = {
   }
 }
 // Compile the given includes and not the excludes with Babel
-exports.compile_app = function(include, exclude, query) {
+exports.compile_app = function(include, exclude) {
   include = include || app_dir;
   exclude = exclude || [/node_modules/, test_scripts_dir];
-  query = query || {
-    "presets": ["react", "es2015", "stage-1"]
-  };
+
   return {
     module: {
       loaders: [
@@ -43,8 +41,7 @@ exports.compile_app = function(include, exclude, query) {
           test: /\.js$/,
           exclude: exclude,
           include: include,
-          loader: 'babel',
-          query: query
+          loader: 'babel'
         }
       ]
     }
